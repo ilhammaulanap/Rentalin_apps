@@ -113,7 +113,7 @@ if(!isset($_SESSION['id_user']))
                             <li><a href="iklan/pasang_iklan.php">Pasang iklan</a></li>
                             <li><a href="profil/profil.php">Profil</a></li>
                             <li><a href="pesan/pesan.php">Pesan</a></li>
-                            <li><a href="about">About</a></li>
+                            <li><a href="about.html">About</a></li>
                             <?php
                             if ($login==null) {
                                 ?>
@@ -136,36 +136,49 @@ if(!isset($_SESSION['id_user']))
 <!-- Latest property -->
   <section id="aa-latest-property">
     <div class="container">
-      <div class="aa-latest-property-area">
+       <div class="aa-latest-property-area">
+ 
         <?php
 error_reporting(0);
     //iclude file koneksi ke database
     include('koneksi.php');
-    //query ke database dg SELECT table siswa diurutkan berdasarkan NIS paling besar
-    $link=koneksi_db();
+        $link=koneksi_db();
     $cari=$_POST['cari'];
     $type_mobil = $_POST['type_mobil'];
     $transmisi = $_POST['transmisi'];
     $harga = $_POST['harga'];
     $link=koneksi_db();
     if ($harga==null) {
-      $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' ORDER BY tgl_iklan DESC";
+      $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' and status_iklan LIKE 'aktif' and verifikasi_iklan LIKE 'iklan disetujui' ORDER BY tgl_iklan DESC";
         $res=mysqli_query($link,$sql);
     }else{
       if ($harga=='tertinggi') {
-        $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' ORDER BY harga DESC";
+        $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' and status_iklan LIKE 'aktif' and verifikasi_iklan LIKE 'iklan disetujui' ORDER BY harga DESC";
         $res=mysqli_query($link,$sql);
       }else{
-        $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' ORDER BY harga ASC";
+        $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' and status_iklan LIKE 'aktif' and verifikasi_iklan LIKE 'iklan disetujui' ORDER BY harga ASC";
         $res=mysqli_query($link,$sql);
       }
     }
+   
       while($data = mysqli_fetch_array($res))
       {
+         if(!isset($data))  {
+        
+        $notfound="<div>Tidak ada iklan yang ditemukan</div>";   
+    }else{
+        $notfound=null;
+    }
  ?>
+
  <a href="iklan/detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
             <div class="col-md-4">
+                
               <article class="aa-properties-item">
+                <?php
+                echo $notfound;
+                ?>
+                
                 <a href="iklan/detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>" class="aa-properties-item-img">
                   <img src="gambar_mobil/<?php echo "$data[photo1]"?>" alt="img">
                 </a>
@@ -182,17 +195,36 @@ error_reporting(0);
                     <span class="aa-price">
                       <?php echo "Rp. $data[harga] "; ?>
                     </span>
-                    <a href="iklan/detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?> " class="aa-secondary-btn">Lihat Detail</a>
+                    <a href="iklan/detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?> " class="business_btn">Lihat Detail</a>
                   </div>
                 </div>
               </article>
             </div>
             <?php
-  }
+  
+}
 ?>
       </div>
     </div>
   </section>
+<?php
+$filename = 'list_pengunjung.txt';  //mendefinisikan nama file yang di gunakan untuk menyimpan data jumlah pengunjung
+ 
+function lihat(){       //function lihat
+    global $filename;   //set variabel $filename yang bersifat global
+ 
+    if(file_exists($filename)){     //jika file list_pengunjung.txt ada
+        $value = file_get_contents($filename);  //set nilai di notepad
+    }else{      //jika file list_pengunjung.txt tidak ada maka akan membuat file list_pengunjung.txt
+        $value = 0;     //kemudian set value menjadi 0
+    }
+ 
+    file_put_contents($filename, ++$value);     //menuliskan kedalam file list_pengunjung.txt value di tambah 1
+}
+ 
+lihat();    //menjalankan function lihat
+echo 'Total Pengunjung: '.file_get_contents($filename);  //menampilkan jumlah pengunjung di website
+?>
   <!-- / Latest property -->
             <!--Test section-->
 

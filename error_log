@@ -1,0 +1,1 @@
+[29-Jan-2019 15:54:11 Asia/Jakarta] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/rentalin/public_html/session_login.php on line 10

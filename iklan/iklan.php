@@ -107,7 +107,7 @@ if(!isset($_SESSION['id_user']))
                             <li><a href="pasang_iklan.php">Pasang iklan</a></li>
                             <li><a href="../profil/profil.php">Profil</a></li>
                             <li><a href="../pesan/pesan.php">Pesan</a></li>
-                            <li><a href="../about">About</a></li>
+                            <li><a href="../about.html">About</a></li>
                             <?php
                             if ($login==null) {
                                 ?>
@@ -142,14 +142,14 @@ error_reporting(0);
     $harga = $_POST['harga'];
     $link=koneksi_db();
     if ($harga==null) {
-      $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' ORDER BY tgl_iklan DESC";
+      $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' and status_iklan LIKE 'aktif' and verifikasi_iklan LIKE 'iklan disetujui' ORDER BY tgl_iklan DESC";
         $res=mysqli_query($link,$sql);
     }else{
       if ($harga=='tertinggi') {
-        $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' ORDER BY harga DESC";
+        $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' and status_iklan LIKE 'aktif' and verifikasi_iklan LIKE 'iklan disetujui' ORDER BY harga DESC";
         $res=mysqli_query($link,$sql);
       }else{
-        $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' ORDER BY harga ASC";
+        $sql="SELECT * FROM iklan WHERE judul_iklan LIKE '%".$cari."%' and transmisi LIKE '%".$transmisi."%' and type_mobil LIKE '%".$type_mobil."%' and status_iklan LIKE 'aktif' and verifikasi_iklan LIKE 'iklan disetujui' ORDER BY harga ASC";
         $res=mysqli_query($link,$sql);
       }
     }
@@ -175,7 +175,7 @@ error_reporting(0);
                     <span class="aa-price">
                       <?php echo "Rp. $data[harga] "; ?>
                     </span>
-                    <a href="detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?> " class="aa-secondary-btn">Lihat Detail</a>
+                    <a href="detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?> " class="business_btn">Lihat Detail</a>
                   </div>
                 </div>
               </article>

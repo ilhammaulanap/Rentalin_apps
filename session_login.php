@@ -20,7 +20,8 @@ header("location:index.php");
 
 else
 {
-echo "<center><font color=red>USERNAME DAN PASSWORD SALAH!</font>";
+	echo"<script>alert('Username atau Password salah !');</script>";
+	$salah= "<center><font color=red>USERNAME ATAU PASSWORD SALAH!</font></center></br>";
 include "login.html";
 }
 

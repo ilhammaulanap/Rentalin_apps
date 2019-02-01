@@ -102,7 +102,7 @@
                             <li><a href="../iklan/pasang_iklan.php">Pasang iklan</a></li>
                             <li><a href="profil.php">Profil</a></li>
                             <li><a href="../pesan/pesan.php">Pesan</a></li>
-                            <li><a href="../about">About</a></li>
+                            <li><a href="../about.htmls">About</a></li>
                             <?php
                             if ($login==null) {
                                 ?>

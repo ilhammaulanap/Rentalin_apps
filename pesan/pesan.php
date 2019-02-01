@@ -6,7 +6,14 @@
     //cek level user
     if(!isset($_SESSION['id_user']))    
         {
-            header("location:login.html");  
+           die("<script>
+  if (confirm('Anda belum Login!')) {
+    (location.href='../login.html')
+  } else {
+    (location.href='../iklan/iklan.php')
+  }
+
+</script>;");  
         
         }else{
             $login=$_SESSION['id_user'];
@@ -106,7 +113,7 @@
                             <li><a href="../iklan/pasang_iklan.php">Pasang iklan</a></li>
                             <li><a href="../profil/profil.php">Profil</a></li>
                             <li><a href="pesan.php">Pesan</a></li>
-                            <li><a href="../about">About</a></li>
+                            <li><a href="../about.html">About</a></li>
                             <?php
                             if ($login==null) {
                                 ?>
@@ -138,6 +145,16 @@ error_reporting(0);
         $id_user=$_SESSION['id_user'];
         $sql="SELECT * FROM pesan WHERE id_user1 = '$id_user' or id_user2 = '$id_user' ORDER BY tgl_pesan DESC";
         $res=mysqli_query($link,$sql);
+        if ($res == null) {
+           ?> <div class="chat_list active_chat">
+          <div class="chat_people">
+            <div class="chat_ib">
+              <h5>Tidak Ada pesan</h5>
+            </div>
+          </div>
+        </div>
+        <?php
+        }else{
             while($data = mysqli_fetch_array($res))
             {
                 if ($data[id_user1]!=$id_user) {
@@ -162,6 +179,7 @@ error_reporting(0);
           </div>
         </div>
 <?php
+}
 }
 ?>
 

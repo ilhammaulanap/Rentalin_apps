@@ -4,11 +4,18 @@
   session_start();
   if(!isset($_SESSION['id_user']))  
     {
-      die("Anda harus login terlibih dahulu");
+      die("<script>
+  if (confirm('Anda belum Login!')) {
+    (location.href='../login.html')
+  } else {
+    (location.href='../iklan/iklan.php')
+  }
+
+</script>;");
       //$login=null;
     }else{
       if($_SESSION['jenis_user']!="Pelapak"){
-      die("Anda bukan pelapak");
+      echo"<script>alert('Anda bukan Pelapak !');(location.href='iklan.php');</script>";
   }else{
         $id_user=$_SESSION['id_user'];
         $login=$id_user;  
@@ -115,7 +122,7 @@
                             <li><a href="pasang_iklan.php">Pasang iklan</a></li>
                             <li><a href="../profil/profil.php">Profil</a></li>
                             <li><a href="../pesan/pesan.php">Pesan</a></li>
-                            <li><a href="../about">About</a></li>
+                            <li><a href="../about.html">About</a></li>
                             <?php
                             if ($login==null) {
                                 ?>
@@ -224,8 +231,8 @@
   $harga = $_POST['harga'];
   $deskripsi = $_POST['deskripsi'];
   $alamat = $_POST['alamat'];
-  $status_iklan = "aktif";
-  $verifikasi_iklan ="iklan disetujui";
+  $status_iklan = "moderasi";
+  $verifikasi_iklan ="dalam proses";
   
   $no_telp = $_POST['no_telp'];
   date_default_timezone_set('Asia/Jakarta');
@@ -234,14 +241,17 @@
 
     // Simpan ke Database
     $link=koneksi_db();
-    $sql = "INSERT INTO iklan(id_user, id_admin, judul_iklan, type_mobil, merk, transmisi, tahun_mobil, no_telp, alamat, deskripsi, harga, status_iklan, verifikasi_iklan, tgl_iklan, photo1, photo2, photo3) VALUES ('$id_user','1','$judul_iklan','$type_mobil','$merk','$transmisi','$tahun_mobil','$no_telp','$alamat','$deskripsi','$harga','$status_iklan','$verifikasi_iklan','$tanggal','$fileName','$fileName1','$fileName2')";
+    $sql = "INSERT INTO iklan(id_user, judul_iklan, type_mobil, merk, transmisi, tahun_mobil, no_telp, alamat, deskripsi, harga, status_iklan, verifikasi_iklan, tgl_iklan, photo1, photo2, photo3) VALUES ('$id_user','$judul_iklan','$type_mobil','$merk','$transmisi','$tahun_mobil','$no_telp','$alamat','$deskripsi','$harga','$status_iklan','$verifikasi_iklan','$tanggal','$fileName','$fileName1','$fileName2')";
     $res=mysqli_query($link,$sql);
     // Simpan di Folder Gambar
     move_uploaded_file($_FILES['gambar']['tmp_name'], "../gambar_mobil/".$_FILES['gambar']['name']);
     move_uploaded_file($_FILES['gambar1']['tmp_name'], "../gambar_mobil/".$_FILES['gambar1']['name']);
     move_uploaded_file($_FILES['gambar2']['tmp_name'], "../gambar_mobil/".$_FILES['gambar2']['name']);
-    
-    echo"<script>alert('Iklan berhasil di simpan !');(location.href='../profil/profil.php');</script>";    
+    if($res){
+    echo"<script>alert('Iklan berhasil di simpan !');(location.href='../profil/profil.php');</script>";  
+    } else{
+    echo"<script>alert('Iklan gagal di simpan !');(location.href='pasang_iklan.php');</script>";  
+    }  
   } 
 ?>
 

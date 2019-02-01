@@ -1,0 +1,15 @@
+[29-Jan-2019 16:32:36 Asia/Jakarta] PHP Warning:  move_uploaded_file(gambar_mobil/logoRentalin1.png): failed to open stream: No such file or directory in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[29-Jan-2019 16:32:36 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php0ftBMq' to 'gambar_mobil/logoRentalin1.png' in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[29-Jan-2019 16:33:52 Asia/Jakarta] PHP Warning:  move_uploaded_file(gambar_mobil/logoRentalin1.png): failed to open stream: No such file or directory in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[29-Jan-2019 16:33:52 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php26HRI7' to 'gambar_mobil/logoRentalin1.png' in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[29-Jan-2019 16:42:13 Asia/Jakarta] PHP Warning:  move_uploaded_file(gambar_mobil/logoRentalin1.png): failed to open stream: No such file or directory in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[29-Jan-2019 16:42:13 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpsILXJ0' to 'gambar_mobil/logoRentalin1.png' in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[29-Jan-2019 22:23:00 Asia/Jakarta] PHP Notice:  Undefined variable: login in /home/rentalin/public_html/iklan/pasang_iklan.php on line 127
+[01-Feb-2019 16:00:22 Asia/Jakarta] PHP Warning:  move_uploaded_file(gambar_mobil/images (1).jpeg): failed to open stream: No such file or directory in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[01-Feb-2019 16:00:22 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpYNmCTc' to 'gambar_mobil/images (1).jpeg' in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[01-Feb-2019 16:02:39 Asia/Jakarta] PHP Warning:  move_uploaded_file(gambar_mobil/images.jpeg): failed to open stream: No such file or directory in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[01-Feb-2019 16:02:39 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpVF9mPE' to 'gambar_mobil/images.jpeg' in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[01-Feb-2019 16:03:10 Asia/Jakarta] PHP Warning:  move_uploaded_file(gambar_mobil/Screenshot_20190130-184834_Instagram.jpg): failed to open stream: No such file or directory in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[01-Feb-2019 16:03:10 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpCRwQ7y' to 'gambar_mobil/Screenshot_20190130-184834_Instagram.jpg' in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[01-Feb-2019 16:03:19 Asia/Jakarta] PHP Warning:  move_uploaded_file(gambar_mobil/images.jpeg): failed to open stream: No such file or directory in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61
+[01-Feb-2019 16:03:19 Asia/Jakarta] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpNm1aN7' to 'gambar_mobil/images.jpeg' in /home/rentalin/public_html/iklan/simpan_iklan.php on line 61

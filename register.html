@@ -44,7 +44,7 @@
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
 
-    <body data-spy="scroll" data-target=".navbar-collapse">
+    <body data-target=".navbar-collapse">
 
 
         <!-- Preloader -->
@@ -73,8 +73,8 @@
           <div class="aa-signin-area">
             <div class="aa-signin-form">
               <div class="aa-signin-form-title">
-                <a class="aa-property-home" href="index.html">Rentalin</a>
-                <h4>Register to your account</h4>
+                <a class="aa-property-home" href="index.php"><img src="assets/images/logoRentalin1.png" class="logo" alt="" width="300"></a>
+                <h5><b>Register to your account</b></h5>
               </div>
               <form class="contactform" action="register.php" method="post">                                                 
                 <div class="aa-single-field">
@@ -91,14 +91,14 @@
                 </div>
                 <div class="aa-single-field">
                   <label for="password">Password <span class="required">*</span></label>
-                  <input type="password" name="password"> 
+                  <input type="password" name="password" required="required"> 
                 </div>
                 <div class="aa-single-field">
                   <label for="Cpassword">Confrim Password <span class="required">*</span></label>
-                  <input type="password" name="Cpassword"> 
+                  <input type="password" name="Cpassword" required="required"> 
                 </div>
                 <div class="aa-single-field">
-                  <label for="Cpassword">Confrim Password <span class="required">*</span></label>
+                  <label for="Cpassword">Jenis User <span class="required">*</span></label>
                   <select name="jenis_user" id="text" required/>
                                             <option value="" selected>--Pilih Jenis Akun--</option>
                                             <option value="Penyewa">Penyewa</option>
@@ -112,7 +112,7 @@
                 </div> 
                 <div class="business_btn">
                   <input type="submit" value="Buat akun" class="btn btn-primary m-top-20" name="submit">  
-                  <p>Have A Account Yet? <a href="login.html">Login!</a></p>
+                  <p>Have A Account Yet? <a href="login.html"><font color=red>Login!</a></font></p>
                 </div>
               </form>
             </div>

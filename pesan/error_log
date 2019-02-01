@@ -1,0 +1,13 @@
+[30-Jan-2019 06:57:49 Asia/Jakarta] PHP Notice:  Use of undefined constant id_pesan - assumed 'id_pesan' in /home/rentalin/public_html/pesan/kirim_pesan.php on line 34
+[30-Jan-2019 06:57:49 Asia/Jakarta] PHP Notice:  Undefined variable: id_isi in /home/rentalin/public_html/pesan/kirim_pesan.php on line 36
+[30-Jan-2019 06:57:53 Asia/Jakarta] PHP Notice:  Use of undefined constant id_pesan - assumed 'id_pesan' in /home/rentalin/public_html/pesan/kirim_pesan.php on line 34
+[30-Jan-2019 06:57:53 Asia/Jakarta] PHP Notice:  Undefined variable: id_isi in /home/rentalin/public_html/pesan/kirim_pesan.php on line 36
+[30-Jan-2019 07:43:50 Asia/Jakarta] PHP Notice:  Use of undefined constant id_pesan - assumed 'id_pesan' in /home/rentalin/public_html/pesan/kirim_pesan.php on line 34
+[30-Jan-2019 07:43:50 Asia/Jakarta] PHP Notice:  Undefined variable: id_isi in /home/rentalin/public_html/pesan/kirim_pesan.php on line 36
+[30-Jan-2019 07:46:04 Asia/Jakarta] PHP Notice:  Undefined variable: id_isi in /home/rentalin/public_html/pesan/kirim_pesan.php on line 18
+[30-Jan-2019 12:00:50 Asia/Jakarta] PHP Notice:  Use of undefined constant id_pesan - assumed 'id_pesan' in /home/rentalin/public_html/pesan/kirim_pesan.php on line 34
+[30-Jan-2019 12:00:50 Asia/Jakarta] PHP Notice:  Undefined variable: id_isi in /home/rentalin/public_html/pesan/kirim_pesan.php on line 36
+[30-Jan-2019 12:50:37 Asia/Jakarta] PHP Notice:  Use of undefined constant id_pesan - assumed 'id_pesan' in /home/rentalin/public_html/pesan/kirim_pesan.php on line 34
+[30-Jan-2019 12:50:37 Asia/Jakarta] PHP Notice:  Undefined variable: id_isi in /home/rentalin/public_html/pesan/kirim_pesan.php on line 36
+[01-Feb-2019 18:53:00 Asia/Jakarta] PHP Notice:  Use of undefined constant id_pesan - assumed 'id_pesan' in /home/rentalin/public_html/pesan/kirim_pesan.php on line 34
+[01-Feb-2019 18:53:00 Asia/Jakarta] PHP Notice:  Undefined variable: id_isi in /home/rentalin/public_html/pesan/kirim_pesan.php on line 36

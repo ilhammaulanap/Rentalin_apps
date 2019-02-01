@@ -4,7 +4,14 @@
     session_start();
     if(!isset($_SESSION['id_user']))  
     {
-      die("Anda belum login");
+      die("<script>
+  if (confirm('Anda belum Login!')) {
+    (location.href='../login.html')
+  } else {
+    (location.href='../iklan/iklan.php')
+  }
+
+</script>;");
     
     }else{
         $login=$_SESSION['id_user'];
@@ -77,9 +84,7 @@
             <nav class="navbar navbar-default bootsnav navbar-fixed">
                 <div class="container"> 
                     <div class="attr-nav">
-                        <ul>
-                            <li class="search"><a href="#"><img src="../assets/images/cari.png" class="logo" alt="">    </a></li>
-                            <li><a href="../iklan/filter_iklan.html"><img src="../assets/images/filter.png" width="25" height="25"></a></li>
+                        <ul><li><a href="../iklan/filter_iklan.html"><img src="../assets/images/filter.png" width="25" height="25"></a></li>
                         </ul>
                     </div> 
 
@@ -104,7 +109,7 @@
                             <li><a href="../iklan/pasang_iklan.php">Pasang iklan</a></li>
                             <li><a href="profil.php">Profil</a></li>
                             <li><a href="../pesan/pesan.php">Pesan</a></li>
-                            <li><a href="../about">About</a></li>
+                            <li><a href="../about.html">About</a></li>
                             <?php
                             if ($login==null) {
                                 ?>
@@ -177,21 +182,43 @@ $sql="SELECT * FROM iklan WHERE id_user ='$id_user'";
     <div class="chat_list active_chat">
         <div class="chat_people">
         <div class="chat_img"> 
-            <a href="detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
+            <a href="../iklan/detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
             <img src="../gambar_mobil/<?php echo "$data[photo1]"?>" alt="sunil"></a>
         </div>
         <div class="chat_ib">
-        <a href="detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
+        <a href="../iklan/detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
         <h5><?php echo "$data[judul_iklan]"; ?> <span class="chat_date"><?php echo "$data[tgl_iklan]"; ?></span></h5>
         </a>
-        <a href="detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
+        <a href="../iklan/detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
         <h5>Rp.<?php echo "$data[harga]"; ?></a><span class="chat_date"> 
-            <a href="../iklan/edit_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
-        Edit Iklan</span></h5></a>
+            <a href="../iklan/edit_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>"><font color=blue>
+        Edit Iklan</span></h5></a></font>
         <h5>
-        <a href="detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>"><?php echo "$data[status_iklan]"; ?></a>
-        </h5>
-        </a>      
+        <a href="../iklan/detail_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>"><?php echo "$data[status_iklan]"; ?></a>
+        <span class="chat_date">
+         <?php "$data[status_iklan]"; 
+         $status=$data[status_iklan];
+         if ($status=='aktif') {             
+         ?>
+            <a href="../iklan/nonaktif_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
+        <font color=blue>Nonaktifkan Iklan</font>
+        <?php
+        }elseif ($status=='nonaktif') {
+        ?>
+        <a href="../iklan/aktif_iklan.php?id_iklan=<?php echo "$data[id_iklan]";?>">
+        <font color=blue>aktifkan Iklan</font>
+        <?php
+        }else{
+            ?>
+        <?php
+        }
+        ?>
+        </span></h5></a>
+        <h5>
+        <span class="chat_date"> 
+           <?php echo( "<a href='../iklan/hapus_iklan.php?id_iklan=$data[id_iklan]&Delete=yes' onclick=\"return confirm('Apakah anda yakin akan menghapus iklan?')\" title='Delete'><font color=blue>Hapus</a></font>" );
+           ?>               
+           </span></h5>              
             </div>
           </div>
         </div>
